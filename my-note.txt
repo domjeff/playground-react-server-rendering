@@ -1,0 +1,27 @@
+This repo is made based on 
+https://www.digitalocean.com/community/tutorials/react-server-side-rendering.
+So it's better to follow the article rather than just download this project.
+But here is my note from my trial following the article.
+By the way this is my first public repo so bare with me if it's not that clean.
+
+I need to add some my own note how to make it works for my case using windows as my OS. 
+I think it is also important to note that I made this on 30 Oct 2020.
+Here are changes I made:
+1. all the steps working pretty much just fine except the ones I put here
+2. In package.json part, on the original post, they add
+	"dev:build-server":"NODE_ENV=development webpack --config webpack.server.js --mode=development -w"
+   But for my case the "NODE_ENV=development" did not work and I need to configure
+   the environment manually, using SET NODE_ENV=development, or you can configure
+   it using .env file if you like.
+3. I think some libraries must be updated as for the start we use npx create-react-app.
+   I forget whether I follow the version of "npx create-react-app@3.4.1 my-ssr-app" written
+   on original post or not, but for my case I need to change webpack library version to be version 4.44.2
+4. With those 2 parts changed (point 2 and 3), it should work.
+
+And if some of you have tried the same article and have more understanding than I do, here are some of
+my questions:
+1. Why after I run "npm run dev" once, the next run does end, it tells me to wait for file change?
+   Instead of running "npm run dev" I need to run "dev:start" as the "dev:build-server" is not required
+   anymore(?) because we already made one from the first run. But I do not really know how it works,
+   anyone can explain more?
+2. How do we deploy this to real practical server?
